@@ -18,7 +18,7 @@ sub importCSVFile($self, $file_path, $tables){
         #print(%$self->source_registrations);
         #$self->importIntoTable($self->source_registrations->{'Customer'});
         for my $table (@$tables){
-            $table->loadFromCSVLineHash($line);
+            $table->loadFromCSVLine($line);
         }
         
 =pod
@@ -32,4 +32,5 @@ sub importCSVFile($self, $file_path, $tables){
 sub importIntoTable($self,$table){
 print("importIntoTable()");
 }
+
 1;

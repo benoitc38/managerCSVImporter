@@ -36,9 +36,9 @@ use constant SQLITE_EXT      => '.db';
 
 my $project_name="manager"; # default value
 # TO DO get options --csv_file_path  --sqlite3_db_file_path
-my $csv_file_path=$project_name.".csv";
-my $sqlite3_db_file_path=$project_name.".db";
-my $schema = ManagerDB::Schema->connect(dbi:SQLite:${sqlite3_db_file_path});
+my $csv_file_path=$project_name.CSV_EXT;
+my $sqlite3_db_file_path=$project_name.SQLITE_EXT;
+my $schema = ManagerDB::Schema->connect("dbi:SQLite:${sqlite3_db_file_path}");
 # TO DO if file exists
 $schema->deploy();
 

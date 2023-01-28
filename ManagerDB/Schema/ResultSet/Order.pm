@@ -9,7 +9,7 @@ use base 'DBIx::Class::ResultSet';
 
 # importFromCSV line as hash
 # input: csv_line as hash ref
-sub loadFromCSVLineHash($self, $csv_line){
+sub loadFromCSVLine($self, $csv_line){
   # remove any irrelevant key from csv_line hash
   print(Dumper($self->result_source->columns));
   my $singular_table_name=$self->result_source->name;
@@ -26,11 +26,13 @@ sub loadFromCSVLineHash($self, $csv_line){
     }
   }
   # remove primary key auto-increment column ? or replace it by null
+  # add the unique key of related Customer
+  $no_prefix_csv_line{'customer'}={'id'=>${$csv_line}{'customer id'}}; # specific related unique key
   print(Dumper(%no_prefix_csv_line));
   try{
-    $self->create(\%no_prefix_csv_line);
+    $self->find_or_create(\%no_prefix_csv_line);
   }catch($err){
-    print("Error loadFromRawHash():",$err);
+    print("Error loadFromCSVLine():",$err);
   }
 }
 
