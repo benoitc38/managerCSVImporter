@@ -8,10 +8,19 @@ use base 'DBIx::Class::Schema';
 
 __PACKAGE__->load_namespaces();
 
+# load classes from shared model
+=pod
+load_classes({
+    'My::Shared::Model::Result' => [qw/
+        Foo
+        Bar
+    /]});
+=cut
+
 
 sub importCSVFile($self, $file_path, $tables){
     my $aoh = csv (in => $file_path, headers => "auto");   # as array of hash refs
-    $aoh=[@$aoh[1..1]]; # Just for unit test
+    #$aoh=[@$aoh[0..0]]; # Just for unit test
     foreach my $line (@$aoh){
         print(Dumper(%$line));
         #ManagerDB::Schema::ResultSet::Customer->loadFromCSVLineHash($line);

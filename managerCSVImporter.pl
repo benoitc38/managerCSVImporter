@@ -1,28 +1,14 @@
 =head1
-Good tutos:
-https://github.com/castaway/dbix-class-book/blob/master/chapters/03-Describing-database.md
-https://perlmaven.com/counter-with-database-backend-using-dbix-class
-
-Very similar example to learn from:
-- including readme.md with perldoc section (automatically extracted from source file?):
-NAME
-VERSION
-SYNOPSIS
-DESCRIPTION
-METHODS
-OPTIONS
-RATIONALE
 TODO
-- command line options to configure the CSV import to be expose to manager
-- installation+usage instructions as github readme (SaaS) vs embedded in package
+- inflate/deflate : 
+     to convert into and from SQL data to cope with data type limitations (Date as ISO string)
+     normalize fields before writing into the database such as a regex to remove starting and ending separator characters
+     "John "
+- command line options to configure the CSV import (csv as input) to be exposed to manager
+- check manager.db file existence to run deploy
+- package the script and its depencies as a Debian one for manager installation
+- installation+usage instructions as github readme vs embedded in package
 
-SaaS version if time permits !!! constraint db in online:
-- API Use catalyst framework to expose API 
-- Basic react UI with unique form and file selector
-- no installation doc
-- online usage instructions
-- swagger doc to document API
-https://github.com/rwstauner/App-csv2sqlite
 =cut
 use experimental qw(signatures);
 use Modern::Perl;

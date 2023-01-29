@@ -1,0 +1,12 @@
+SQLite version 3.34.1 2021-01-20 14:10:07
+Enter ".help" for usage hints.
+[?2004hsqlite> [7mselect * from items,orders,customers where items.order_id=orders.id and [27m[7mo[27m[7mrders.customer_id=customers.id order by customers.id,orders.date[27m[A[C[C[C[C[C[C[C[Cselect * from items,orders,customers where items.order_id=orders.id and orders.customer_id=customers.id order by customers.id,orders.date
+[?2004l[?2004h   ...> ;
+[?2004l1|pen|acme|325|1|1|23|2019-02-01 12:32:00|7|7|Foo|Bar
+2|journal|acme|550|1|1|23|2019-02-01 12:32:00|7|7|Foo|Bar
+5|journal|PaperWorks|450|4|4|29|2019-02-01 10:00:00|19|19|John |Davidson
+6|pen, ball point|acme|99|5|5|53-1|2019-02-01 17:30:00|19|19|John |Davidson
+3|journal|acme|550|2|2|42|2019-02-01 13:01:00|22|22|John|Davidson 
+4|journal|acme|550|3|3|991-2|2019-02-02 09:01:00|401|401|Christina|Rosetti
+7|journal|acme|550|6|6|13|2019-02-03 19:01:00|401|401|Christina|Rosetti
+[?2004hsqlite> 
